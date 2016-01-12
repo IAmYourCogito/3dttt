@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title> 3D tic tac toe</title>
+	<link rel="stylesheet" type="text/css" href="">
+	<script type="text/javascript" src="./angular.js"></script>
+	<script type="text/javascript" src="./app.js"></script>
+</head>
+<body>
+	<div ng-app="homepage">
+		<div ng-controller="voxelcontroller as vc">
+				<select name="box" id="box" ng-model="boxModel" ng-options="boxValue.name for boxValue in box">
+					<option value="">---Please select value--- </option>
+<!-- 					<option value="0"> 0 </option>
+					<option value="1"> 1 </option> -->
+				</select>
+				<select name="row" id="row" ng-model="rowModel" ng-options="rowValue.name for rowValue in row">
+					<option value="">---Please select row---</option>
+<!-- 					<option value="0"> 0 </option>
+					<option value="1"> 1 </option>
+					<option value="2"> 2 </option>
+					<option value="3"> 3 </option> -->
+				</select>
+				<select name="column" id="column" ng-model="columnModel" ng-options="columnValue.name for columnValue in column">
+					<option value="">---Please select column---</option>
+					<!-- <option value="0"> 0 </option>
+					<option value="1"> 1 </option>
+					<option value="2"> 2 </option>
+					<option value="3"> 3 </option> -->
+				</select>
+				<select name="plane" id="plane" ng-model="planeModel" ng-options="planeValue.name for planeValue in plane">
+					<option value="">---Please select plane---</option>
+					<!-- <option value="0"> 0 </option>
+					<option value="1"> 1 </option>
+					<option value="2"> 2 </option>
+					<option value="3"> 3 </option> -->
+				</select>
+			<button ng-click="vc.playmove()" ng-click="vc.winchecker()"> end turn </button>
+				<p> Voxel position selected is: {{rowModel.value}}{{columnModel.value}}{{planeModel.value}} for {{boxModel.value}} </p>
+			<div ng-repeat="a in vc.vlist track by $index"> {{vc.vlist}} </div>
+		</div>
+	</div>
+</body>
+</html>
